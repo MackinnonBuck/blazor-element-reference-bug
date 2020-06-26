@@ -1,0 +1,15 @@
+@inject IJSRuntime JS
+
+<button @onclick="ButtonClicked">Return ElementReference from JS</button>
+<div @ref="elementReference">This div is being referenced</div>
+
+@code {
+    private ElementReference elementReference;
+
+    private async Task ButtonClicked()
+    {
+        await JS.InvokeAsync<ElementReference>("identity", elementReference);
+
+        Console.WriteLine("Unreachable due to internal exception");
+    }
+}

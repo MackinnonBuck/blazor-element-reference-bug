@@ -1,0 +1,1 @@
+﻿window.identity = (value) => value;
